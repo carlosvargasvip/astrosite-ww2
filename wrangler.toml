@@ -1,0 +1,10 @@
+name = "astrosite-ww2"
+compatibility_date = "2024-12-01"
+pages_build_output_dir = "./dist"
+
+[vars]
+# REPLACE with real values before going live
+# CLICKFUNNELS_API_KEY = ""
+# CLICKFUNNELS_WORKSPACE_ID = ""
+# GA_MEASUREMENT_ID = ""
+# META_PIXEL_ID = ""

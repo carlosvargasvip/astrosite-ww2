@@ -1,0 +1,113 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  category: string;
+  slug: string;
+}
+
+const { title, description, date, category, slug } = Astro.props;
+
+const formattedDate = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<article class="blog-card">
+  <div class="blog-card-content">
+    <span class="blog-category">{category}</span>
+    <h3 class="blog-title">
+      <a href={`/blog/${slug}/`}>{title}</a>
+    </h3>
+    <p class="blog-excerpt">{description}</p>
+    <div class="blog-meta">
+      <time datetime={date.toISOString()}>{formattedDate}</time>
+      <a href={`/blog/${slug}/`} class="read-more">Read Article &rarr;</a>
+    </div>
+  </div>
+</article>
+
+<style>
+  .blog-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .blog-card:hover {
+    border-color: rgba(45, 212, 191, 0.3);
+    transform: translateY(-4px);
+  }
+
+  .blog-card-content {
+    padding: 1.5rem;
+  }
+
+  .blog-category {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(45, 212, 191, 0.1);
+    color: #2dd4bf;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+  }
+
+  .blog-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+  }
+
+  .blog-title a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .blog-title a:hover {
+    color: #2dd4bf;
+  }
+
+  .blog-excerpt {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1rem;
+  }
+
+  .blog-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+  }
+
+  .blog-meta time {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .read-more {
+    color: #2dd4bf;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+
+  .read-more:hover {
+    color: #5eead4;
+  }
+</style>

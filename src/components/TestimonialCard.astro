@@ -1,0 +1,70 @@
+---
+interface Props {
+  quote: string;
+  name: string;
+  company?: string;
+  title?: string;
+}
+
+const { quote, name, company, title } = Astro.props;
+---
+
+<div class="testimonial-card">
+  <div class="quote-mark">&ldquo;</div>
+  <blockquote class="testimonial-quote">{quote}</blockquote>
+  <div class="testimonial-attribution">
+    <span class="testimonial-name">{name}</span>
+    {(company || title) && (
+      <span class="testimonial-role">
+        {title}{title && company ? ', ' : ''}{company}
+      </span>
+    )}
+  </div>
+</div>
+
+<style>
+  .testimonial-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 2rem;
+    position: relative;
+  }
+
+  .quote-mark {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    color: #2dd4bf;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    opacity: 0.5;
+  }
+
+  .testimonial-quote {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 0 1.5rem;
+    font-style: italic;
+  }
+
+  .testimonial-attribution {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .testimonial-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: #ffffff;
+  }
+
+  .testimonial-role {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+</style>

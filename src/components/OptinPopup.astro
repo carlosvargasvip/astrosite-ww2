@@ -1,0 +1,307 @@
+---
+---
+
+<div class="optin-overlay" id="optin-overlay" role="dialog" aria-label="Email signup" aria-hidden="true">
+  <div class="optin-modal" id="optin-modal">
+    <button class="optin-close" id="optin-close" aria-label="Close popup">&times;</button>
+
+    <div class="optin-content" id="optin-form-view">
+      <div class="optin-badge">Free Assessment</div>
+      <h2 class="optin-headline">Get Your Free AI Readiness Score</h2>
+      <p class="optin-body">
+        Find out exactly where AI fits in your business. Take the 2-minute scorecard and get a personalized assessment
+        with specific recommendations for your next steps.
+      </p>
+
+      <form class="optin-form" id="optin-form">
+        <div class="form-group">
+          <input
+            type="text"
+            name="name"
+            placeholder="Your name"
+            required
+            autocomplete="given-name"
+            aria-label="Your name"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="email"
+            name="email"
+            placeholder="your@email.com"
+            required
+            autocomplete="email"
+            aria-label="Your email address"
+          />
+        </div>
+        <button type="submit" class="optin-submit" id="optin-submit">
+          Get My AI Readiness Score
+        </button>
+        <p class="optin-disclaimer">No spam. Unsubscribe anytime. We respect your privacy.</p>
+      </form>
+    </div>
+
+    <div class="optin-success" id="optin-success" style="display: none;">
+      <div class="success-icon">&#10003;</div>
+      <h2 class="optin-headline">You're In!</h2>
+      <p class="optin-body">
+        Check your email for the AI Readiness Scorecard link. While you wait,
+        explore our resources on AI implementation and fractional CTO services.
+      </p>
+      <a href="/resources/" class="optin-submit">Explore Resources</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .optin-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+
+  .optin-overlay.visible {
+    display: flex;
+  }
+
+  .optin-modal {
+    position: relative;
+    background: linear-gradient(135deg, #0f2440 0%, #162d4d 100%);
+    border: 1px solid rgba(45, 212, 191, 0.2);
+    border-radius: 16px;
+    padding: 2.5rem;
+    max-width: 460px;
+    width: 100%;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  }
+
+  .optin-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .optin-close:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .optin-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(45, 212, 191, 0.15);
+    color: #2dd4bf;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+
+  .optin-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .optin-body {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 0.75rem;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+  }
+
+  .form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .form-group input:focus {
+    outline: none;
+    border-color: #2dd4bf;
+  }
+
+  .optin-submit {
+    display: block;
+    width: 100%;
+    padding: 0.875rem;
+    background: #2dd4bf;
+    color: #0a1628;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .optin-submit:hover {
+    background: #5eead4;
+    transform: translateY(-1px);
+  }
+
+  .optin-disclaimer {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.35);
+    text-align: center;
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+  }
+
+  .success-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(45, 212, 191, 0.15);
+    color: #2dd4bf;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  @media (max-width: 480px) {
+    .optin-modal {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  const overlay = document.getElementById('optin-overlay');
+  const modal = document.getElementById('optin-modal');
+  const closeBtn = document.getElementById('optin-close');
+  const form = document.getElementById('optin-form') as HTMLFormElement | null;
+  const formView = document.getElementById('optin-form-view');
+  const successView = document.getElementById('optin-success');
+
+  const STORAGE_KEY = 'optin-popup-shown';
+  let popupShown = false;
+
+  function showPopup(): void {
+    if (popupShown || sessionStorage.getItem(STORAGE_KEY)) return;
+    popupShown = true;
+    sessionStorage.setItem(STORAGE_KEY, 'true');
+    overlay?.classList.add('visible');
+    overlay?.setAttribute('aria-hidden', 'false');
+  }
+
+  function hidePopup(): void {
+    overlay?.classList.remove('visible');
+    overlay?.setAttribute('aria-hidden', 'true');
+  }
+
+  // Trigger: exit intent (desktop)
+  document.addEventListener('mouseout', (e: MouseEvent) => {
+    if (e.clientY <= 0) showPopup();
+  });
+
+  // Trigger: 30 seconds on page
+  setTimeout(showPopup, 30000);
+
+  // Trigger: 50% scroll
+  let scrollTriggered = false;
+  window.addEventListener('scroll', () => {
+    if (scrollTriggered) return;
+    const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+    if (scrollPercent >= 0.5) {
+      scrollTriggered = true;
+      showPopup();
+    }
+  });
+
+  // Close handlers
+  closeBtn?.addEventListener('click', hidePopup);
+
+  overlay?.addEventListener('click', (e: Event) => {
+    if (e.target === overlay) hidePopup();
+  });
+
+  document.addEventListener('keydown', (e: KeyboardEvent) => {
+    if (e.key === 'Escape') hidePopup();
+  });
+
+  // Form submission
+  form?.addEventListener('submit', async (e: Event) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const submitBtn = document.getElementById('optin-submit') as HTMLButtonElement | null;
+
+    if (submitBtn) {
+      submitBtn.textContent = 'Submitting...';
+      submitBtn.disabled = true;
+    }
+
+    try {
+      const response = await fetch('/api/optin/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.get('name'),
+          email: formData.get('email'),
+          tags: ['lead-ai-scorecard', 'website-popup'],
+        }),
+      });
+
+      if (response.ok) {
+        if (formView) formView.style.display = 'none';
+        if (successView) successView.style.display = 'block';
+      } else {
+        if (submitBtn) {
+          submitBtn.textContent = 'Something went wrong. Try again.';
+          submitBtn.disabled = false;
+        }
+      }
+    } catch {
+      if (submitBtn) {
+        submitBtn.textContent = 'Connection error. Try again.';
+        submitBtn.disabled = false;
+      }
+    }
+  });
+</script>

@@ -1,0 +1,41 @@
+---
+interface Props {
+  src?: string;
+  title?: string;
+  height?: string;
+}
+
+const {
+  src = '/scorecard/index.html',
+  title = 'AI Readiness Scorecard',
+  height = '700px',
+} = Astro.props;
+---
+
+<div class="scorecard-embed">
+  <iframe
+    src={src}
+    title={title}
+    width="100%"
+    height={height}
+    frameborder="0"
+    loading="lazy"
+    allow="clipboard-write"
+  ></iframe>
+</div>
+
+<style>
+  .scorecard-embed {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .scorecard-embed iframe {
+    display: block;
+  }
+</style>

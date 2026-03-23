@@ -1,0 +1,201 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const faqCategories = [
+  {
+    title: 'Understanding the Fractional CTO Model',
+    items: [
+      { q: 'What is a Fractional CTO?', a: 'A Fractional CTO is a senior technology executive who works with your company on a part-time or contract basis. You get the same strategic technology leadership, architectural decision-making, and technical oversight as a full-time Chief Technology Officer — at a fraction of the time commitment and cost. Most engagements run 10-20 hours per month.' },
+      { q: 'What is the difference between a Fractional CTO and a technology consultant?', a: 'A consultant typically works on a defined project — they analyze a problem, deliver recommendations, and move on. A Fractional CTO is embedded in your business on an ongoing basis. They attend leadership meetings, take ownership of technology decisions, and stay accountable for outcomes over time.' },
+      { q: 'What is the difference between a Fractional CTO and a freelance developer?', a: 'A freelance developer builds what you ask them to build. A Fractional CTO decides what should be built in the first place. The CTO operates at the strategic level — evaluating your technology landscape, making architectural decisions, and ensuring every technical investment connects to a business outcome.' },
+      { q: 'Do I need a Fractional CTO or a full-time CTO?', a: 'If your business generates under $10M in revenue and you do not have a complex engineering team requiring daily oversight, a Fractional CTO is almost certainly the right model. You get the same strategic impact at 60-75% less cost.' },
+      { q: 'How is Carlos different from other Fractional CTOs?', a: 'Three things set Carlos apart. First, he is hands-on — he implements, not just advises. Second, he has deep AI expertise that most Fractional CTOs do not have. Third, he bridges technology and business — every recommendation is grounded in revenue impact.' },
+    ],
+  },
+  {
+    title: 'Pricing & Engagement Models',
+    items: [
+      { q: 'How much does a Fractional CTO cost?', a: 'Monthly retainers typically range from $3,000 to $15,000 per month. Hourly rates range from $150 to $350 per hour. Project-based engagements vary by scope. For comparison, a full-time CTO costs $250,000-$400,000 per year plus equity and benefits.' },
+      { q: 'What does a typical engagement look like?', a: 'Most engagements begin with a free 30-minute strategy call. If there is a fit, a typical monthly retainer includes 10-20 hours per month — a combination of strategy sessions, implementation work, and async support. The minimum commitment is 3 months.' },
+      { q: 'Do you offer project-based pricing or only retainers?', a: 'Both. Monthly retainers are ideal for ongoing technology leadership. Project-based pricing works well for defined-scope work like technology audits, AI implementation projects, or platform migrations.' },
+      { q: 'What is the minimum commitment?', a: 'For retainer engagements, the minimum is 3 months. Technology strategy requires continuity. For project-based work, the timeline is defined by scope and can range from 1 week to 3 months.' },
+    ],
+  },
+  {
+    title: 'AI Implementation',
+    items: [
+      { q: 'Can you help me implement AI even if I am not technical?', a: 'Absolutely. That is the most common engagement type. Every AI implementation is designed around tools you interact with in plain English — no coding required. The process includes assessment, tool selection, implementation, integration, and team training.' },
+      { q: 'What AI tools and platforms do you work with?', a: 'Carlos works with the full range of AI platforms and tools, including large language models (ChatGPT, Claude, Gemini), AI automation platforms (Make, Zapier, n8n), AI-powered content tools, AI customer service solutions, and custom AI workflows.' },
+      { q: 'How long does AI implementation take?', a: 'A focused AI implementation typically follows a 90-day roadmap. Phase 1 (Days 1-30) covers assessment and quick wins. Phase 2 (Days 31-60) handles deeper integration. Phase 3 (Days 61-90) focuses on optimization and training.' },
+      { q: 'How do I know if my business is ready for AI?', a: 'Take the AI Readiness Scorecard — it is a free, 2-minute assessment that evaluates your business across five dimensions. Your score will tell you exactly where AI can add value right now.' },
+    ],
+  },
+  {
+    title: 'Working Together',
+    items: [
+      { q: 'What does the strategy call look like?', a: 'The strategy call is a free, 30-minute video call. Carlos reviews your current technology setup, asks about your business goals, and identifies the three highest-impact opportunities. There is no sales pitch.' },
+      { q: 'What industries do you work with?', a: 'Carlos works across industries, with particular depth in coaching/consulting, SaaS startups, e-commerce, professional services, and digital product companies. The common thread is stage — businesses between $100K and $5M in revenue.' },
+      { q: 'Do you work with teams or just founders?', a: 'Both. Some engagements are directly with a solo founder. Others involve working alongside an existing team — managing developers, guiding agencies, or collaborating with marketing and operations.' },
+      { q: 'Are you available for urgent technical issues?', a: 'Yes. For retainer clients, Carlos provides priority support. For non-retainer clients, project-based troubleshooting can typically begin within 24-48 hours.' },
+    ],
+  },
+  {
+    title: 'Results & Expectations',
+    items: [
+      { q: 'What results can I expect?', a: 'Results vary by situation. Common outcomes include: a clear technology roadmap, 30-40% reduction in technology costs, faster execution, AI systems that automate manual processes, and higher-converting funnels.' },
+      { q: 'How do you measure success?', a: 'Every engagement starts with defined success metrics tied to your business goals: time saved, revenue generated, cost reduction, or milestone completion. Carlos provides regular progress reports.' },
+      { q: 'What if I need more or less than the standard retainer?', a: 'Retainer engagements are flexible. You can increase hours during high-intensity phases and scale back during steady-state periods.' },
+    ],
+  },
+];
+
+// Build all Q&A pairs for JSON-LD
+const allQA = faqCategories.flatMap((cat) => cat.items);
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: allQA.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.a,
+    },
+  })),
+};
+---
+
+<BaseLayout
+  title="FAQ — Fractional CTO Services, AI Implementation & Technology Consulting | Carlos Vargas"
+  description="Answers to the most common questions about Fractional CTO services, AI implementation, pricing, engagement models, and working with Carlos Vargas."
+  jsonLd={jsonLd}
+>
+
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-headline">Frequently Asked Questions</h1>
+      <p class="hero-sub">Straightforward answers to the most common questions about Fractional CTO services, AI implementation, and working with Carlos Vargas.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container faq-container">
+      {faqCategories.map((category) => (
+        <div class="faq-category">
+          <h2 class="category-title">{category.title}</h2>
+          <div class="faq-list">
+            {category.items.map((item) => (
+              <details class="faq-item">
+                <summary class="faq-question">{item.q}</summary>
+                <p class="faq-answer">{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <p class="disclaimer">Individual results vary. Percentages reflect observed averages and are not guarantees of future performance.</p>
+    </div>
+  </section>
+
+  <CTABanner
+    headline="Still Have a Question?"
+    body="Book a free 30-minute strategy call and ask Carlos directly. No commitment, no pitch — just answers."
+  />
+
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 5rem 1.5rem 4rem;
+    text-align: center;
+    background: linear-gradient(180deg, #0a1628 0%, #0f2440 100%);
+  }
+
+  .hero-headline {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .hero-sub {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  .faq-container {
+    max-width: 800px;
+  }
+
+  .faq-category {
+    margin-bottom: 3rem;
+  }
+
+  .category-title {
+    font-size: 1.25rem;
+    color: #2dd4bf;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(45, 212, 191, 0.15);
+  }
+
+  .faq-item {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .faq-item:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .faq-question {
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-size: 1.25rem;
+    color: #2dd4bf;
+    flex-shrink: 0;
+    margin-left: 1rem;
+  }
+
+  .faq-item[open] .faq-question::after {
+    content: '-';
+  }
+
+  .faq-answer {
+    padding: 0 1.25rem 1.25rem;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .disclaimer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.35);
+    margin-top: 2rem;
+  }
+</style>

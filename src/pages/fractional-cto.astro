@@ -1,0 +1,357 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const faqItems = [
+  {
+    question: 'What is the difference between a Fractional CTO and a technology consultant?',
+    answer: 'A technology consultant typically scopes a project, delivers recommendations, and moves on. A Fractional CTO is embedded in your business on an ongoing basis, attending leadership meetings, making decisions, and taking ownership of technology outcomes over time.',
+  },
+  {
+    question: 'How many hours per week does a Fractional CTO work?',
+    answer: 'Most engagements range from 10 to 20 hours per month (roughly 2-5 hours per week). Some businesses need more during critical phases like an AI implementation or platform migration.',
+  },
+  {
+    question: 'Can a Fractional CTO help with AI implementation?',
+    answer: 'Yes — and this is increasingly one of the primary reasons businesses hire a Fractional CTO. A Fractional CTO with AI expertise can evaluate your AI readiness, select the right tools, design the implementation plan, and execute it within your existing tech stack.',
+  },
+  {
+    question: 'Is a Fractional CTO right for my stage of business?',
+    answer: 'If your business generates between $100K and $10M in revenue and you do not have a full-time CTO, the fractional model is likely a strong fit.',
+  },
+  {
+    question: 'How quickly can a Fractional CTO start?',
+    answer: 'Unlike a full-time CTO hire (which can take 3-6 months to recruit), most Fractional CTO engagements can begin within 1-2 weeks of the initial strategy call.',
+  },
+  {
+    question: 'What happens if I outgrow the Fractional CTO model?',
+    answer: 'Good Fractional CTOs plan for this. They help you define when a full-time hire makes sense, assist with the job description and interview process, and ensure a smooth transition.',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Fractional CTO Services',
+    provider: {
+      '@type': 'Person',
+      name: 'Carlos Vargas',
+    },
+    description: 'Fractional CTO services for startups and growing businesses. Strategic technology leadership without the full-time salary.',
+    url: 'https://www2.carlosvargas.com/fractional-cto/',
+  },
+];
+---
+
+<BaseLayout
+  title="What Is a Fractional CTO? The Complete Guide for Founders & Startups (2026) | Carlos Vargas"
+  description="What is a Fractional CTO? Learn what they do, how much they cost ($3K-$15K/mo), when to hire one, and how they compare to full-time CTOs. Complete guide for founders and small businesses."
+  jsonLd={jsonLd}
+>
+
+  <section class="hero">
+    <div class="container">
+      <span class="section-label">Complete Guide</span>
+      <h1 class="hero-headline">What Is a Fractional CTO — and Does Your Business Need One?</h1>
+      <p class="hero-sub">The complete guide for founders, startups, and growing businesses who need CTO-level technology leadership without the full-time executive salary.</p>
+      <p class="hero-author">By Carlos Vargas, Fractional CTO &amp; Solutions Architect | Updated March 2026</p>
+    </div>
+  </section>
+
+  <article class="section">
+    <div class="container article-content">
+
+      <h2>Introduction</h2>
+      <p>Every growing business reaches a point where technology decisions start to feel high-stakes. The wrong platform costs six months. A poorly designed system creates problems that compound. And suddenly, the founder is making $50,000 decisions about technology architecture without anyone qualified to pressure-test those choices.</p>
+      <p>This is the moment when most businesses need a CTO. The problem? A full-time CTO costs between $250,000 and $400,000 per year in salary alone.</p>
+      <p>Enter the Fractional CTO. This guide covers everything you need to know.</p>
+
+      <h2>What Is a Fractional CTO?</h2>
+      <p>A Fractional CTO is a senior technology executive who works with your company on a part-time or contract basis — providing the same strategic leadership, architectural decision-making, and technical oversight as a full-time CTO, but at a fraction of the time commitment and cost.</p>
+      <p>Most engagements run 10 to 20 hours per month depending on the complexity of your technology needs and the stage of your business.</p>
+
+      <h3>What a Fractional CTO Is Not</h3>
+      <ul>
+        <li><strong>Not a developer for hire.</strong> Their primary value is strategic — choosing what to build, how to build it, and what to skip entirely.</li>
+        <li><strong>Not a consultant who delivers a report and leaves.</strong> A good Fractional CTO is embedded in your business and takes ownership of outcomes.</li>
+        <li><strong>Not a temporary hire.</strong> Many businesses find that fractional is the right permanent model — particularly companies under $10M in revenue.</li>
+      </ul>
+
+      <h2>Who Needs a Fractional CTO?</h2>
+      <div class="audience-grid">
+        <div class="audience-card">
+          <h3>Non-Technical Founders</h3>
+          <p>You built your business on a great idea and strong execution, but every technology decision is a guess. A Fractional CTO gives you a technical co-pilot.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Startups $100K-$5M Revenue</h3>
+          <p>Your technology was built for where you were, not where you are going. A Fractional CTO creates the architecture for your next growth phase.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Businesses Exploring AI</h3>
+          <p>AI is the biggest technology shift since the internet. A Fractional CTO with AI expertise can design and execute your AI strategy.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Burned by Agencies</h3>
+          <p>A Fractional CTO breaks the cycle of wasted spend by providing accountable, ongoing technology leadership — not one-off deliverables.</p>
+        </div>
+      </div>
+
+      <h2>Fractional CTO vs. Full-Time CTO</h2>
+      <div class="comparison-table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Factor</th><th>Full-Time CTO</th><th>Fractional CTO</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Annual Cost</td><td>$250K-$400K + equity</td><td>$36K-$180K</td></tr>
+            <tr><td>Time Commitment</td><td>40-60 hrs/week</td><td>10-20 hrs/month</td></tr>
+            <tr><td>Hiring Timeline</td><td>3-6 months</td><td>1-2 weeks</td></tr>
+            <tr><td>Flexibility</td><td>Long-term, hard to unwind</td><td>Scale up or down</td></tr>
+            <tr><td>Experience Breadth</td><td>Deep in one company</td><td>Broad across many</td></tr>
+            <tr><td>Risk</td><td>High — $300K+ mistake</td><td>Low — short commitments</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>How Much Does a Fractional CTO Cost?</h2>
+      <div class="comparison-table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Model</th><th>Range</th><th>Best For</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Monthly Retainer</td><td>$3,000 - $15,000/mo</td><td>Ongoing leadership</td></tr>
+            <tr><td>Hourly</td><td>$150 - $350/hr</td><td>Specific projects</td></tr>
+            <tr><td>Project-Based</td><td>$5,000 - $50,000+</td><td>Defined scope</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Seven Signals You Need a Fractional CTO</h2>
+      <ol class="signals-list">
+        <li>You are making technology decisions without a technical advisor.</li>
+        <li>Your technology costs are rising faster than your revenue.</li>
+        <li>You have been burned by a developer, agency, or technical hire.</li>
+        <li>You know AI matters but do not know where to start.</li>
+        <li>Your current systems cannot support your next growth phase.</li>
+        <li>You are preparing to raise capital.</li>
+        <li>You spend more time managing technology than running your business.</li>
+      </ol>
+      <p>If three or more of these resonate, a Fractional CTO engagement is likely the right next step.</p>
+
+      <h2 id="faq">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        {faqItems.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-question">{item.question}</summary>
+            <p class="faq-answer">{item.answer}</p>
+          </details>
+        ))}
+      </div>
+
+    </div>
+  </article>
+
+  <CTABanner
+    headline="Ready to Explore Fractional CTO Services?"
+    body="Book a free 30-minute strategy call. Carlos will assess your current technology situation, identify the three highest-impact opportunities, and give you a clear recommendation. No pitch. No commitment."
+    secondaryCta="Take the AI Readiness Scorecard"
+    secondaryHref="/resources/"
+  />
+
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 5rem 1.5rem 4rem;
+    text-align: center;
+    background: linear-gradient(180deg, #0a1628 0%, #0f2440 100%);
+  }
+
+  .hero-headline {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-sub {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 0 auto 1rem;
+  }
+
+  .hero-author {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  .article-content {
+    max-width: 800px;
+  }
+
+  .article-content h2 {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-content h3 {
+    font-size: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: #2dd4bf;
+  }
+
+  .article-content p {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 1.25rem;
+  }
+
+  .article-content ul, .article-content ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .article-content li {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+  }
+
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .audience-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .audience-card h3 {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-top: 0;
+  }
+
+  .audience-card p {
+    font-size: 0.9375rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  .comparison-table-wrapper {
+    overflow-x: auto;
+    margin: 1.5rem 0 2rem;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 0.875rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .comparison-table th {
+    background: rgba(255, 255, 255, 0.04);
+    color: #2dd4bf;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .comparison-table td {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .signals-list {
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .signals-list li {
+    padding: 0.375rem 0;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+  }
+
+  .faq-question {
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 1rem;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-size: 1.25rem;
+    color: #2dd4bf;
+    flex-shrink: 0;
+    margin-left: 1rem;
+  }
+
+  .faq-item[open] .faq-question::after {
+    content: '-';
+  }
+
+  .faq-answer {
+    padding: 0 1.25rem 1rem;
+    font-size: 0.9375rem !important;
+  }
+
+  @media (max-width: 768px) {
+    .hero-headline { font-size: 1.75rem; }
+    .audience-grid { grid-template-columns: 1fr; }
+  }
+</style>

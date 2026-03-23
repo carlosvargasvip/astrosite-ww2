@@ -1,0 +1,285 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Carlos Vargas',
+  jobTitle: 'Fractional CTO & Solutions Architect',
+  url: 'https://www2.carlosvargas.com/about/',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Carlos Vargas Consulting',
+  },
+  knowsAbout: ['AI Implementation', 'Systems Architecture', 'Funnel Engineering', 'Technology Strategy'],
+};
+---
+
+<BaseLayout
+  title="About Carlos Vargas — Fractional CTO & Solutions Architect | Carlos Vargas"
+  description="Meet Carlos Vargas — Fractional CTO and Solutions Architect who bridges technology and business for non-technical founders. Hands-on AI implementation, tech strategy, and funnel engineering."
+  jsonLd={jsonLd}
+>
+
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-headline">The Technologist Who Builds What Others Only Recommend</h1>
+      <p class="hero-sub">Carlos Vargas — Fractional CTO, Solutions Architect, and the technology partner founders call when they are done with strategy decks that sit in a drawer.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-section">
+      <h2 class="section-title">The Bridge Builder</h2>
+      <p>Most technology consultants fall into one of two categories. There are the strategists — the ones who audit your systems, hand you a 40-page PDF, and disappear. And there are the technicians — the ones who can build anything you ask for but never question whether it is the right thing to build.</p>
+      <p>Carlos Vargas is neither. He is the bridge between the two.</p>
+      <p>As a Fractional CTO and Solutions Architect, Carlos works at the intersection of technology and business — the exact place where most companies struggle. He speaks both languages fluently. He can sit in a board meeting and align a technology roadmap to a revenue target, then walk to his desk and architect the system that makes it happen.</p>
+
+      <h2 class="section-title" style="margin-top: 3rem;">The Journey</h2>
+      <p>Carlos built his career at the intersection of systems, strategy, and execution — learning early on that the best technology in the world is worthless if it does not serve the business it was built for.</p>
+      <p>Over the years, Carlos has worked across the full spectrum of technology challenges: building and debugging complex systems, designing architectures that scale, integrating platforms that were never designed to talk to each other, and implementing AI solutions that turn manual processes into automated revenue engines.</p>
+      <p>Through all of it, one pattern kept repeating: the businesses that struggled with technology were not the ones with bad ideas. They were the ones without a technical leader who understood both the technology and the business.</p>
+      <p>That pattern is why Carlos Vargas Consulting exists.</p>
+
+      <h3 class="subsection-title">The Builder's Mindset</h3>
+      <p>Carlos has always identified with the builder's mindset — someone who combines wisdom, understanding, and knowledge across many disciplines. A master craftsman. Someone who does not just design — he builds. That is the spirit Carlos brings to every engagement.</p>
+    </div>
+  </section>
+
+  <section class="section" style="background: rgba(255,255,255,0.02);">
+    <div class="container content-section">
+      <h2 class="section-title">What Carlos Believes About Technology and Business</h2>
+      <div class="beliefs-grid">
+        <div class="belief-card">
+          <h3>Technology Should Serve Revenue</h3>
+          <p>Every technology decision should connect to a business outcome. If it does not increase revenue, save meaningful time, or reduce real risk, it is complexity for the sake of complexity.</p>
+        </div>
+        <div class="belief-card">
+          <h3>Implementation Is the Only Strategy That Matters</h3>
+          <p>A strategy that never gets implemented is not a strategy — it is an expense. Every recommendation comes with an implementation plan, and most come with Carlos doing the implementation himself.</p>
+        </div>
+        <div class="belief-card">
+          <h3>AI Is an Operational Advantage, Not a Buzzword</h3>
+          <p>Carlos treats AI the same way he treats any technology: evaluate the use case, select the right tool, build the integration, measure the outcome, and iterate. No hype. Just results.</p>
+        </div>
+        <div class="belief-card">
+          <h3>Non-Technical Founders Deserve Technical Respect</h3>
+          <p>Carlos translates complex technical concepts into clear business language because his clients deserve to understand the technology that runs their business.</p>
+        </div>
+        <div class="belief-card">
+          <h3>The Best Technology Partner Makes Themselves Unnecessary</h3>
+          <p>The goal of every engagement is not to create dependency. It is to build systems that work, train teams that can maintain them, and develop founders who can lead.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-section">
+      <h2 class="section-title">Why Founders Choose Carlos</h2>
+      <div class="diff-table">
+        <div class="diff-row">
+          <div class="diff-problem"><strong>Agencies</strong> give you a team of juniors. You never know who is doing the work.</div>
+          <div class="diff-solution">Carlos is the senior person. There is no team of juniors behind the scenes.</div>
+        </div>
+        <div class="diff-row">
+          <div class="diff-problem"><strong>Freelance developers</strong> build what you ask for but never tell you if you are asking for the wrong thing.</div>
+          <div class="diff-solution">Carlos challenges the brief when it needs challenging — before you spend the money.</div>
+        </div>
+        <div class="diff-row">
+          <div class="diff-problem"><strong>Traditional consultants</strong> hand you a strategy document and move on.</div>
+          <div class="diff-solution">Carlos implements. He builds the systems, configures the tools, and makes sure everything works.</div>
+        </div>
+        <div class="diff-row">
+          <div class="diff-problem"><strong>AI "experts"</strong> who appeared recently rarely have deep systems architecture experience.</div>
+          <div class="diff-solution">Carlos's AI expertise sits on top of years of systems architecture and integration engineering.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: rgba(255,255,255,0.02);">
+    <div class="container content-section">
+      <h2 class="section-title">Background &amp; Expertise</h2>
+      <div class="expertise-grid">
+        <div>
+          <h3 class="subsection-title">Technical Expertise</h3>
+          <ul>
+            <li>Systems Architecture &amp; Design</li>
+            <li>AI Implementation &amp; Automation</li>
+            <li>Funnel Engineering (ClickFunnels Certified)</li>
+            <li>Integration Engineering (APIs, webhooks, automation)</li>
+            <li>Cloud Infrastructure &amp; Security</li>
+            <li>Full-Stack Technology Strategy</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="subsection-title">Business Expertise</h3>
+          <ul>
+            <li>Technology Roadmap Development</li>
+            <li>Vendor &amp; Platform Evaluation</li>
+            <li>Team Building &amp; Technical Hiring</li>
+            <li>Growth Strategy &amp; Revenue Optimization</li>
+            <li>Coaching &amp; Founder Development</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-section">
+      <h2 class="section-title">Why This Work Matters</h2>
+      <p>There is a gap in the market that should not exist. On one side, there are brilliant entrepreneurs with real businesses. On the other side, there is transformative technology — AI, automation, intelligent systems — that could accelerate their growth by years.</p>
+      <p>The gap between the two is not intelligence. It is not ambition. It is access. Access to CTO-level thinking. Access to someone who understands both the technology and the business.</p>
+      <p>Carlos's mission is to close that gap. To give every ambitious founder access to the same caliber of technology leadership that Silicon Valley startups take for granted — without the Silicon Valley price tag.</p>
+    </div>
+  </section>
+
+  <CTABanner
+    headline="Let's Talk About Your Business"
+    body="If something on this page resonated — if you recognized your business in the problems described — the next step is a conversation. Book a 30-minute strategy call. No pitch, no pressure."
+    secondaryCta="Take the AI Readiness Scorecard"
+    secondaryHref="/resources/"
+  />
+
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 5rem 1.5rem 4rem;
+    text-align: center;
+    background: linear-gradient(180deg, #0a1628 0%, #0f2440 100%);
+  }
+
+  .hero-headline {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-sub {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  .content-section {
+    max-width: 800px;
+  }
+
+  .content-section p {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 1.25rem;
+  }
+
+  .subsection-title {
+    font-size: 1.125rem;
+    color: #2dd4bf;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .beliefs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .belief-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .belief-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    color: #ffffff;
+  }
+
+  .belief-card p {
+    font-size: 0.9375rem !important;
+    color: rgba(255, 255, 255, 0.65) !important;
+    margin-bottom: 0 !important;
+    line-height: 1.6 !important;
+  }
+
+  .diff-table {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .diff-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .diff-problem {
+    padding: 1.25rem;
+    border-left: 3px solid rgba(255, 200, 200, 0.3);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  .diff-solution {
+    padding: 1.25rem;
+    border-left: 3px solid rgba(45, 212, 191, 0.5);
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+
+  .expertise-grid ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .expertise-grid li {
+    padding: 0.5rem 0 0.5rem 1.25rem;
+    position: relative;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9375rem;
+  }
+
+  .expertise-grid li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.85rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #2dd4bf;
+  }
+
+  @media (max-width: 768px) {
+    .hero-headline { font-size: 1.75rem; }
+    .beliefs-grid, .expertise-grid, .diff-row { grid-template-columns: 1fr; }
+  }
+</style>

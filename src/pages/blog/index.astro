@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const sortedPosts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const categories = [...new Set(sortedPosts.map((p) => p.data.category))];
+---
+
+<BaseLayout
+  title="Blog — AI, Technology Strategy & Fractional CTO Insights | Carlos Vargas"
+  description="Practical articles on AI implementation, fractional CTO insights, funnel engineering, and technology strategy for non-technical founders and growing businesses."
+>
+
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-headline">Blog</h1>
+      <p class="hero-sub">Practical insights on AI implementation, technology strategy, and fractional CTO leadership — written for founders who want actionable guidance, not buzzwords.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="category-filter">
+        <span class="filter-label">Categories:</span>
+        {categories.map((cat) => (
+          <span class="category-tag">{cat}</span>
+        ))}
+      </div>
+
+      <div class="blog-grid">
+        {sortedPosts.map((post) => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.date}
+            category={post.data.category}
+            slug={post.slug}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 5rem 1.5rem 4rem;
+    text-align: center;
+    background: linear-gradient(180deg, #0a1628 0%, #0f2440 100%);
+  }
+
+  .hero-headline {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .hero-sub {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  .category-filter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .filter-label {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-right: 0.5rem;
+  }
+
+  .category-tag {
+    padding: 0.375rem 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  @media (max-width: 900px) {
+    .blog-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    .blog-grid { grid-template-columns: 1fr; }
+  }
+</style>

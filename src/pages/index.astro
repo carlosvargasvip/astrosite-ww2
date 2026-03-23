@@ -1,0 +1,520 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import BlogCard from '../components/BlogCard.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const recentPosts = allPosts
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Carlos Vargas — Fractional CTO & Solutions Architect',
+  description: 'Fractional CTO and Solutions Architect specializing in AI implementation, technology strategy, and funnel engineering for non-technical founders.',
+  url: 'https://www2.carlosvargas.com',
+  founder: {
+    '@type': 'Person',
+    name: 'Carlos Vargas',
+    jobTitle: 'Fractional CTO & Solutions Architect',
+  },
+  serviceType: ['Fractional CTO', 'AI Implementation', 'Technology Consulting', 'Funnel Architecture'],
+};
+---
+
+<BaseLayout
+  title="Carlos Vargas | Fractional CTO & Solutions Architect — AI, Technology Strategy & Funnel Engineering"
+  description="Fractional CTO and Solutions Architect specializing in AI implementation, technology strategy, and funnel engineering for non-technical founders. Hands-on leadership, not just strategy. Book a free strategy call."
+  ogTitle="Fractional CTO Services — AI Strategy, Tech Leadership, Funnel Architecture"
+  ogDescription="CTO-level technology leadership for founders who need AI implementation, strategic architecture, and funnel engineering without the full-time salary."
+  jsonLd={jsonLd}
+>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="section-label">Fractional CTO &amp; Solutions Architect</span>
+        <h1 class="hero-headline">Your Business Deserves a CTO.<br />You Don't Need to Hire One Full-Time.</h1>
+        <p class="hero-sub">
+          Fractional CTO and Solutions Architect specializing in AI implementation, technology strategy,
+          and funnel engineering for non-technical founders and growing businesses. Hands-on leadership
+          — not just strategy documents.
+        </p>
+        <div class="hero-ctas">
+          <a href="/book-a-call/" class="btn-primary">Book Your Free Strategy Call</a>
+          <a href="/resources/" class="btn-secondary">Take the AI Readiness Scorecard</a>
+        </div>
+        <p class="hero-supporting">30 minutes. No pitch. Just a clear look at where technology is costing you money — and how to fix it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAIN POINTS -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Technology Should Accelerate Your Business. Not Slow It Down.</h2>
+      <p class="section-subtitle" style="margin-bottom: 3rem;">
+        You started your business to solve a problem and serve your customers. Not to spend your nights
+        comparing SaaS platforms, troubleshooting broken integrations, or wondering whether that AI tool
+        everyone is talking about is actually worth it.
+      </p>
+      <div class="pain-grid">
+        <div class="pain-card">
+          <h3>The Decision Paralysis Problem</h3>
+          <p>Every tool claims to be "the one." You have spent thousands on platforms you barely use,
+            integrations that half-work, and agencies that delivered a strategy deck but never actually
+            built anything.</p>
+        </div>
+        <div class="pain-card">
+          <h3>The Full-Time CTO Problem</h3>
+          <p>You need someone who understands architecture, AI, automation, and how all of it connects
+            to your revenue. But a full-time CTO costs $250K to $400K a year — plus equity.</p>
+        </div>
+        <div class="pain-card">
+          <h3>The AI Anxiety Problem</h3>
+          <p>Your competitors are implementing AI. Every month you wait is a month they pull further ahead.
+            But nobody is giving you straight answers about what actually works for a business your size.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="section" style="background: rgba(255,255,255,0.02);">
+    <div class="container">
+      <span class="section-label">The Solution</span>
+      <h2 class="section-title">CTO-Level Expertise. Founder-Friendly Pricing. Hands-On Implementation.</h2>
+      <div class="solution-content">
+        <p>
+          A Fractional CTO gives you everything a full-time Chief Technology Officer provides — strategic vision,
+          technical leadership, architectural decision-making, AI implementation — without the full-time salary,
+          benefits, and equity.
+        </p>
+        <p>
+          Carlos Vargas is the Fractional CTO and Solutions Architect who bridges the gap between technology
+          and business. He does not hand you a strategy document and wish you luck. He rolls up his sleeves,
+          gets inside your systems, and builds what needs to be built.
+        </p>
+        <ul class="solution-points">
+          <li><strong>Hands-on implementation</strong>, not just recommendations. You get working systems, not PowerPoint decks.</li>
+          <li><strong>AI specialization</strong> that most fractional CTOs simply do not have.</li>
+          <li><strong>Business fluency</strong> combined with deep technical depth. Your technology strategy will be driven by revenue outcomes.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE PILLARS -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">Three Ways to Put CTO-Level Technology Leadership to Work</h2>
+      <div class="services-grid">
+        <ServiceCard
+          title="Fractional CTO & Technology Strategy"
+          description="Monthly retainer engagements that give you ongoing access to strategic technology leadership. Someone who sees the full picture and makes decisions that compound."
+          outcomes={['Technology roadmap aligned to revenue goals', 'Vendor and platform decisions that save money', 'Architecture that scales without rebuilding']}
+          href="/services/#fractional-cto"
+        />
+        <ServiceCard
+          title="AI Implementation & Automation"
+          description="AI systems that automate your operations, enhance your customer experience, and give you a measurable competitive edge — without requiring you to write a line of code."
+          outcomes={['AI tools integrated into your actual workflow', 'Automated processes that save 10-20 hours per week', 'Clear ROI within 90 days']}
+          href="/services/#ai-implementation"
+        />
+        <ServiceCard
+          title="Funnel Architecture & Conversion Engineering"
+          description="High-converting funnels with technical integrations that actually work — payments, CRM, email automation, analytics — optimized for conversion."
+          outcomes={['Funnels that convert traffic into revenue', 'Integrations that actually work', 'Data-driven optimization based on real metrics']}
+          href="/services/#funnel-architecture"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section" style="background: rgba(255,255,255,0.02);">
+    <div class="container">
+      <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">What Founders Say After Working with Carlos</h2>
+      <div class="testimonials-grid">
+        <TestimonialCard
+          quote="I had spent over $15,000 on tools and agencies before I found Carlos. Within the first month, he audited my entire stack, cut three platforms I didn't need, and built an AI-powered system that does what I was paying two VAs to handle."
+          name="Client Name"
+          company="Company"
+          title="Founder"
+        />
+        <TestimonialCard
+          quote="Carlos is the only technology partner I've worked with who actually understands business. He doesn't just tell you what to build — he tells you why it matters for revenue, and then he builds it."
+          name="Client Name"
+          company="Company"
+          title="CEO"
+        />
+        <TestimonialCard
+          quote="I was terrified of AI. Carlos walked me through the entire process, set up three AI tools in my business, and trained my team to use them. My content production tripled and my response time to leads dropped from 24 hours to under 5 minutes."
+          name="Client Name"
+          company="Company"
+          title="Founder"
+        />
+      </div>
+      <p class="disclaimer">Individual results vary. Testimonials reflect specific client experiences and are not guarantees of future performance.</p>
+
+      <!-- Metrics -->
+      <div class="metrics-bar">
+        <div class="metric"><span class="metric-value">15+</span><span class="metric-label">Hours Saved / Week</span></div>
+        <div class="metric"><span class="metric-value">30-40%</span><span class="metric-label">Tech Cost Reduction</span></div>
+        <div class="metric"><span class="metric-value">2-3x</span><span class="metric-label">Funnel Conversion Improvement</span></div>
+        <div class="metric"><span class="metric-value">90 Days</span><span class="metric-label">Time to AI Implementation</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI READINESS SCORECARD -->
+  <section class="section">
+    <div class="container scorecard-section">
+      <div class="scorecard-text">
+        <span class="section-label">Free Assessment</span>
+        <h2 class="section-title">Not Sure Where AI Fits in Your Business?</h2>
+        <p class="section-subtitle">
+          The AI Readiness Scorecard evaluates your business across five critical dimensions: process readiness,
+          data readiness, technology readiness, team readiness, and strategic readiness. In less than two minutes, you will know exactly where to start.
+        </p>
+        <ul class="scorecard-benefits">
+          <li>Where AI can save you the most time and money right now</li>
+          <li>Which areas of your business are ready for AI</li>
+          <li>Your personalized AI readiness score with specific recommendations</li>
+        </ul>
+        <a href="/resources/" class="btn-primary">Take the Free AI Readiness Scorecard</a>
+        <p class="scorecard-note">No email required to see your score. 2 minutes. Completely free.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT TEASER -->
+  <section class="section" style="background: rgba(255,255,255,0.02);">
+    <div class="container about-teaser">
+      <span class="section-label">About</span>
+      <h2 class="section-title">Meet Carlos Vargas — Your Fractional CTO</h2>
+      <p class="section-subtitle" style="margin-bottom: 1.5rem;">
+        Carlos is not the kind of technologist who speaks in jargon and hides behind complexity. He is the kind
+        who sits down with you, understands your business, and builds the technology that moves it forward.
+      </p>
+      <p class="section-subtitle">
+        With deep expertise in AI, funnel engineering, systems architecture, and business coaching, Carlos has
+        helped founders stop guessing about technology and start using it as the growth lever it was always meant to be.
+      </p>
+      <a href="/about/" class="read-more-link" style="margin-top: 1.5rem; display: inline-block;">Read the Full Story &rarr;</a>
+    </div>
+  </section>
+
+  <!-- BLOG PREVIEW -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">Latest Insights on AI, Technology Strategy, and Growth</h2>
+      <div class="blog-grid">
+        {recentPosts.map((post) => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.date}
+            category={post.data.category}
+            slug={post.slug}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <CTABanner
+    headline="Ready to Stop Guessing and Start Building?"
+    body="Every engagement starts the same way: a 30-minute strategy call where Carlos looks at your current technology setup, identifies the three biggest opportunities, and gives you a clear recommendation — whether that means working together or not. No pitch. No pressure."
+  />
+
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 6rem 1.5rem 5rem;
+    text-align: center;
+    background: linear-gradient(180deg, #0a1628 0%, #0f2440 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(45, 212, 191, 0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero-headline {
+    font-size: 2.75rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+  }
+
+  .hero-sub {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.875rem 2rem;
+    background: #2dd4bf;
+    color: #0a1628;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: #5eead4;
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.875rem 2rem;
+    background: transparent;
+    color: #2dd4bf;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 2px solid rgba(45, 212, 191, 0.4);
+    border-radius: 8px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: #2dd4bf;
+    background: rgba(45, 212, 191, 0.08);
+  }
+
+  .hero-supporting {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .pain-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 2rem;
+  }
+
+  .pain-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+    color: #ffffff;
+  }
+
+  .pain-card p {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.7;
+  }
+
+  .solution-content {
+    max-width: 800px;
+  }
+
+  .solution-content p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 1.25rem;
+  }
+
+  .solution-points {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+  }
+
+  .solution-points li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1rem;
+  }
+
+  .solution-points li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.95rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #2dd4bf;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .disclaimer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.35);
+    margin: 1rem 0 3rem;
+  }
+
+  .metrics-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .metric-value {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #2dd4bf;
+    margin-bottom: 0.25rem;
+  }
+
+  .metric-label {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .scorecard-section {
+    max-width: 700px;
+  }
+
+  .scorecard-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 2rem;
+  }
+
+  .scorecard-benefits li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9375rem;
+  }
+
+  .scorecard-benefits li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.85rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #2dd4bf;
+  }
+
+  .scorecard-note {
+    margin-top: 0.75rem;
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .read-more-link {
+    color: #2dd4bf;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .read-more-link:hover {
+    color: #5eead4;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  @media (max-width: 900px) {
+    .hero-headline {
+      font-size: 2rem;
+    }
+
+    .pain-grid,
+    .services-grid,
+    .testimonials-grid,
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .metrics-bar {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-headline {
+      font-size: 1.625rem;
+    }
+
+    .hero-ctas {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .metrics-bar {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
